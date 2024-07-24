@@ -1,12 +1,14 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.10)
+project(Engine)
 
-project(Engine CXX)
+# Configuración del toolchain de Vcpkg
+set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/tools/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "Vcpkg toolchain file")
 
-set(CMAKE_CXX_COMPILER clang++)
+# Buscar las dependencias
+find_package(SDL2 REQUIRED CONFIG)
 
-# Especifica el estándar de C++
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-# Añade tu archivo fuente
+# Crear el ejecutable
 add_executable(Engine main.cpp)
+
+# Vincular las bibliotecas
+target_link_libraries(Engine PRIVATE SDL2::SDL2 SDL2::SDL2main)

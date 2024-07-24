@@ -1,0 +1,6 @@
+{
+    "cmake.configureSettings": {
+      "CMAKE_TOOLCHAIN_FILE": "${workspaceFolder}/tools/vcpkg/scripts/buildsystems/vcpkg.cmake"
+    },
+    "C_Cpp.default.configurationProvider": "Ninja"
+  }
